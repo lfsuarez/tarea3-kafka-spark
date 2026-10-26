@@ -46,15 +46,19 @@ Este proyecto implementa un entorno de procesamiento distribuido en tiempo real 
    ```bash
    head -n 1 creditcard.csv
    ```
+
+   ![Primera fila del dataset creditcard.csv](head.png)
+
 3. **Ejecutar el productor de eventos:**
    ```bash
    python3 kafka_producer.py
    ```
 
+   ![Productor enviando transacciones a Kafka](ii.png)
+
 4. **Ejecutar el consumidor de Spark Streaming:**
    ```bash
    spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.3 spark_streaming_consumer.py
    ```
-   ![Ejecución en tiempo real de Spark y Kafka](./ii.png)
 
-    ![Ejecución en tiempo real de Spark y Kafka](./oo.png)
+   ![Resultados de Spark Streaming por micro-lote](oo.png)
