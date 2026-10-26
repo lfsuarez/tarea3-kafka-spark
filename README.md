@@ -42,6 +42,8 @@ Este proyecto implementa un entorno de procesamiento distribuido en tiempo real 
    /opt/Kafka/bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic sensor_data
    ```
 
+   ![inicio](pp.png)
+
 2. **Inspeccionar la estructura del dataset:**
    ```bash
    head -n 1 creditcard.csv
