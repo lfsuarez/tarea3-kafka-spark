@@ -3,7 +3,8 @@
 **Autor:** Luis Fernando Suárez Molina  
 **Programa:** Ingeniería Industrial  
 **Institución:** Universidad Nacional Abierta y a Distancia (UNAD)  
-**Curso:** Procesamiento de Datos con Apache Spark — Tarea 3
+**Curso:** Big Data
+**Fase:**Tarea 3 - Procesamiento de Datos con Apache Spark
 
 ---
 
@@ -28,3 +29,12 @@ Este proyecto implementa un entorno de procesamiento distribuido en tiempo real 
    sudo /opt/Kafka/bin/zookeeper-server-start.sh -daemon /opt/Kafka/config/zookeeper.properties
    sudo /opt/Kafka/bin/kafka-server-start.sh -daemon /opt/Kafka/config/server.properties
    /opt/Kafka/bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic sensor_data
+   
+
+ 2. **Ejecutar Productor de Eventos:**
+   ```bash
+      python3 kafka_producer.py
+   ```
+ 3. **Ejecutar consumidor de  Spark streaming:**
+      ```bash
+   python3 kafka_producer.py
