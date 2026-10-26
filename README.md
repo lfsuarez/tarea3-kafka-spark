@@ -48,4 +48,4 @@ Este proyecto implementa un entorno de procesamiento distribuido en tiempo real 
    ```bash
    spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.3 spark_streaming_consumer.py
    ```
-   ![Ejecución en tiempo real de Spark y Kafka](./ArquitecturayComponentes.png)
+   ![Ejecución en tiempo real de Spark y Kafka](./arquitectura.png)
