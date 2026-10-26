@@ -74,6 +74,4 @@ Este proyecto implementa un entorno de procesamiento distribuido en tiempo real 
 * **Consumidor:** Spark Streaming lee el topic `sensor_data` y, en cada micro-lote, muestra el número de transacciones y el monto promedio por clase, donde `0` es una transacción legítima y `1` es un fraude.
 * Los conteos aumentan en cada micro-lote porque la salida es acumulada desde el inicio del flujo.
 
-## 🔜 En desarrollo
 
-* Análisis en batch con DataFrames: limpieza de datos, proporción de fraudes y comparación de montos entre transacciones fraudulentas y legítimas.
