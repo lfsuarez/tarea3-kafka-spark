@@ -12,7 +12,7 @@
 
 ---
 ## 📋 Descripción del Proyecto
-Este proyecto implementa un entorno de procesamiento distribuido en tiempo real para la detección de fraudes en transacciones con tarjetas de crédito. Se utiliza el dataset `creditcard.csv` (Kaggle) con 284.807 registros altamente desbalanceados.
+Este proyecto implementa un entorno de procesamiento en tiempo real para la detección de fraudes en transacciones con tarjetas de crédito. Se utiliza el dataset `creditcard.csv` (Kaggle) con 284.807 registros altamente desbalanceados.
 
 ## 🛠️ Arquitectura y Componentes
 * **Apache ZooKeeper:** Coordinador de servicios del clúster.
@@ -46,7 +46,7 @@ Este proyecto implementa un entorno de procesamiento distribuido en tiempo real 
    /opt/Kafka/bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic sensor_data
    ```
 
-   ![inicio](pp.png)
+   ![Inicio de ZooKeeper y Kafka y creación del topic]](pp.png)
 
 2. **Inspeccionar la estructura del dataset:**
    ```bash
@@ -66,6 +66,7 @@ Este proyecto implementa un entorno de procesamiento distribuido en tiempo real 
    ```bash
    spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.3 spark_streaming_consumer.py
    ```
+> **Nota:** el productor (paso 3) y el consumidor (paso 4) se ejecutan al mismo tiempo, cada uno en su propia terminal. Deja el productor enviando datos mientras Spark Streaming procesa los micro-lotes.
 
    ![Resultados de Spark Streaming por micro-lote](oo.png)
 
