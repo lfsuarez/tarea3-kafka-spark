@@ -38,7 +38,6 @@ Este proyecto implementa un entorno de procesamiento distribuido en tiempo real 
    ```bash
    head -n 1 creditcard.csv
    ```
-![Ejecución en tiempo real de Spark y Kafka](./head.png)
 3. **Ejecutar el productor de eventos:**
    ```bash
    python3 kafka_producer.py
