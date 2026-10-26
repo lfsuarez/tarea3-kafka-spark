@@ -32,6 +32,10 @@ Este proyecto implementa un entorno de procesamiento distribuido en tiempo real 
 * Apache Spark 3.5.3
 * Apache Kafka
 * Dataset `creditcard.csv`, que debe descargarse de [Kaggle](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud) y colocarse en la carpeta del proyecto, ya que no se incluye en el repositorio por su tamaño.
+* kafka-python
+  ```bash
+   pip install kafka-python
+   ```
 
 ## 🚀 Guía de Ejecución
 
