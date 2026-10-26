@@ -1,13 +1,16 @@
 # Detección de Fraude Financiero con Apache Spark & Kafka
 
-**Autor:** Luis Suárez 
-**Programa:** Ingeniería Industrial  
-**Institución:** Universidad Nacional Abierta y a Distancia (UNAD)  
+**Autor:** Luis Suárez
+
+**Programa:** Ingeniería Industrial
+
+**Institución:** Universidad Nacional Abierta y a Distancia (UNAD)
+
 **Curso:** Big Data
+
 **Fase:** Tarea 3: Procesamiento de Datos con Apache Spark
 
 ---
-
 ## 📋 Descripción del Proyecto
 Este proyecto implementa un entorno de procesamiento distribuido en tiempo real para la detección de fraudes en transacciones con tarjetas de crédito. Se utiliza el dataset `creditcard.csv` (Kaggle) con 284.807 registros altamente desbalanceados.
 
