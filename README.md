@@ -66,12 +66,21 @@ Este proyecto implementa un entorno de procesamiento distribuido en tiempo real 
    ![Resultados de Spark Streaming por micro-lote](oo.png)
 
 
-   > **Nota:** el productor y el consumidor se ejecutan al mismo tiempo, cada uno en su propia terminal.
+## 📊 Análisis de Resultados en Tiempo Real
 
-## 📊 Resultados
+Como se observa en la captura de la consola durante la ejecución de los micro-lotes:
+* **Procesamiento Continuo:** Spark Streaming recibe el flujo inyectado por el productor en el topic `sensor_data` y actualiza la tabla por cada intervalo.
+* **Segmentación por Clase:** El sistema agrupa dinámicamente las transacciones legítimas (`Class = 0`) y los fraudes (`Class = 1`).
+* **Cálculo de Métricas:** En cada micro-lote se recalcula en tiempo real el monto promedio (`avg(Amount)`) y el volumen total de eventos procesados (`count(Time)`), permitiendo detectar desviaciones sospechosas al instante.
 
-* **Productor:** envía cada transacción del dataset como un mensaje JSON con los campos `Time`, `Amount` y `Class`.
-* **Consumidor:** Spark Streaming lee el topic `sensor_data` y, en cada micro-lote, muestra el número de transacciones y el monto promedio por clase, donde `0` es una transacción legítima y `1` es un fraude.
-* Los conteos aumentan en cada micro-lote porque la salida es acumulada desde el inicio del flujo.
+---
+
+## 💡 Conclusiones Técnicas
+
+1. **Desacoplamiento de Ingesta:** La integración de Apache Kafka actúa como un buffer intermedio que absorbe picos de tráfico de transacciones sin impactar el rendimiento del motor de cómputo.
+2. **Monitoreo en Tiempo Real:** Spark Streaming transforma el análisis tradicional de datos históricos en un esquema distribuido de bajo retardo, reduciendo el tiempo de respuesta ante fraudes financieros a milisegundos.
+3. **Arquitectura Escalable:** El diseño basado en micro-servicios y contenedores de mensajería facilita escalar horizontalmente agregando más particiones al topic o nodos al clúster de Spark según la demanda transaccional.
+
+
 
 
