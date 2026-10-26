@@ -1,26 +1,30 @@
-# Detección de Fraude en Tarjetas de Crédito - Apache Spark & Kafka
+# Detección de Fraude Financiero con Apache Spark & Kafka
 
 **Autor:** Luis Fernando Suárez Molina  
-**Universidad:** Universidad Nacional Abierta y a Distancia (UNAD)  
 **Programa:** Ingeniería Industrial  
-**Curso:** Procesamiento de Datos con Apache Spark (Tarea 3)
+**Institución:** Universidad Nacional Abierta y a Distancia (UNAD)  
+**Curso:** Procesamiento de Datos con Apache Spark — Tarea 3
 
-## Descripción del Proyecto
-Este repositorio contiene la implementación de una arquitectura de Big Data orientada al procesamiento de eventos en tiempo real (Streaming). El objetivo es analizar el dataset `creditcard.csv` (Kaggle) con 284.807 transacciones financieras, el cual presenta un desbalance extremo (solo el 0.17% son fraudes), simulando un entorno de producción para la detección temprana de anomalías.
+---
 
-## Arquitectura y Tecnologías
-*   **Apache ZooKeeper:** Coordinación y gestión del clúster.
-*   **Apache Kafka:** Broker de mensajería (Topic: `sensor_data`).
-*   **Apache Spark (PySpark):** Procesamiento en micro-lotes (Spark Streaming).
-*   **Python 3:** Lenguaje base para los scripts.
+## 📋 Descripción del Proyecto
+Este proyecto implementa un entorno de procesamiento distribuido en tiempo real para la detección de fraudes en transacciones con tarjetas de crédito. Se utiliza el dataset `creditcard.csv` (Kaggle) con 284.807 registros altamente desbalanceados.
 
-## Archivos del Repositorio
-1.  `kafka_producer.py`: Script que lee el dataset local y actúa como productor, publicando cada transacción en formato JSON hacia el topic de Kafka simulando un flujo en vivo.
-2.  `spark_streaming_consumer.py`: Script consumidor que se suscribe al topic mediante el conector de Spark-Kafka. Procesa el flujo de datos por micro-lotes y calcula métricas clave (promedio de montos y conteo de eventos) agrupados por la clase de transacción (Fraude/Legítima).
+## 🛠️ Arquitectura y Componentes
+* **Apache ZooKeeper:** Coordinador de servicios del clúster.
+* **Apache Kafka:** Broker de eventos distribuido (Topic: `sensor_data`).
+* **Apache Spark (PySpark):** Procesamiento de micro-lotes en tiempo real mediante `SparkSession` y `readStream`.
+* **Python 3:** Entorno de scripting para producción y consumo.
 
-## Instrucciones de Ejecución
+## 📁 Archivos Incluidos
+* `kafka_producer.py`: Lee el archivo local de transacciones y las transmite progresivamente en formato JSON hacia Kafka.
+* `spark_streaming_consumer.py`: Se suscribe al topic de Kafka, procesa los micro-lotes y calcula estadísticas agrupadas (promedio de monto y volumen por clase).
+* `README.md`: Documentación técnica del repositorio.
 
-**1. Levantar la infraestructura:**
-```bash
-sudo /opt/Kafka/bin/zookeeper-server-start.sh -daemon /opt/Kafka/config/zookeeper.properties
-sudo /opt/Kafka/bin/kafka-server-start.sh -daemon /opt/Kafka/config/server.properties
+## 🚀 Guía de Ejecución
+
+1. **Iniciar Infraestructura:**
+   ```bash
+   sudo /opt/Kafka/bin/zookeeper-server-start.sh -daemon /opt/Kafka/config/zookeeper.properties
+   sudo /opt/Kafka/bin/kafka-server-start.sh -daemon /opt/Kafka/config/server.properties
+   /opt/Kafka/bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic sensor_data
