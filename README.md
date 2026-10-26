@@ -45,31 +45,31 @@ Este proyecto implementa un entorno de procesamiento en tiempo real para la dete
    sudo /opt/Kafka/bin/kafka-server-start.sh -daemon /opt/Kafka/config/server.properties
    /opt/Kafka/bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic sensor_data
    ```
-
+---
    ![Inicio de ZooKeeper y Kafka y creación del topic]](pp.png)
-
+---
 2. **Inspeccionar la estructura del dataset:**
    ```bash
    head -n 1 creditcard.csv
    ```
-
+---
    ![Primera fila del dataset creditcard.csv](head.png)
-
+---
 3. **Ejecutar el productor de eventos:**
    ```bash
    python3 kafka_producer.py
    ```
-
+---
    ![Productor enviando transacciones a Kafka](ii.png)
-
+---
 4. **Ejecutar el consumidor de Spark Streaming:**
    ```bash
    spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.3 spark_streaming_consumer.py
    ```
 > **Nota:** el productor (paso 3) y el consumidor (paso 4) se ejecutan al mismo tiempo, cada uno en su propia terminal. Deja el productor enviando datos mientras Spark Streaming procesa los micro-lotes.
-
+---
    ![Resultados de Spark Streaming por micro-lote](oo.png)
-
+---
 
 ## 📊 Análisis de Resultados en Tiempo Real
 
