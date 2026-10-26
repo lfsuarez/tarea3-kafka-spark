@@ -24,6 +24,14 @@ Este proyecto implementa un entorno de procesamiento distribuido en tiempo real 
 * `kafka_producer.py`: Lee el archivo local de transacciones y las transmite progresivamente en formato JSON hacia Kafka.
 * `spark_streaming_consumer.py`: Se suscribe al topic de Kafka, procesa los micro-lotes y calcula estadísticas agrupadas (promedio de monto y volumen por clase).
 * `README.md`: Documentación técnica del repositorio.
+  
+## ⚙️ Requisitos
+
+* Java 11
+* Python 3
+* Apache Spark 3.5.3
+* Apache Kafka
+* Dataset `creditcard.csv`, que debe descargarse de [Kaggle](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud) y colocarse en la carpeta del proyecto, ya que no se incluye en el repositorio por su tamaño.
 
 ## 🚀 Guía de Ejecución
 
